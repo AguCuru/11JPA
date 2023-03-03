@@ -23,7 +23,9 @@ public class EditorialDAO extends DAO<Editorial> {
 
     public Editorial buscarPorNombre(String nombre) throws Exception {
         conectar();
-        Editorial editorial = (Editorial) em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre").setParameter("nombre", nombre).getSingleResult();
+        Editorial editorial = (Editorial) em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre")
+                .setParameter("nombre", nombre)
+                .getSingleResult();
         desconectar();
         return editorial;
     }    

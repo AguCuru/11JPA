@@ -31,7 +31,7 @@ public class LibroServicio {
             System.out.println("Ingrese los datos solicitados a continuacion:");
             System.out.println("ISBN: ");
             System.out.println("Generado con numero aleatorios");
-            libro.setIsbn( (long)(Math.random()*10+1));
+            libro.setIsbn( (long)(Math.random()*1000+1));
             //libro.setIsbn(leer.nextLong());
             System.out.println("Titulo: ");    
             libro.setTitulo(leer.next());
@@ -60,7 +60,30 @@ public class LibroServicio {
 
         
         
-    }    
+    }
+    public void editarLibro() throws Exception {
+        Libro edit; 
+        System.out.println("Ingrese autor que desea editar");
+        imprimirLibros();
+        String tit = leer.next();
+        edit= DAO.buscarPorTitulo(tit);
+        System.out.println("-------------------------");
+        System.out.println("Ingrese el nuevo nombre");
+        String nuevoTitulo= leer.next();
+        edit.setTitulo(nuevoTitulo);
+        System.out.println("Ingrese el año");
+        edit.setAnio(leer.nextInt());
+        DAO.editar(edit);
+    }  
+    
+    public Libro buscarXtitulo() throws Exception{
+        Libro l = null;
+        System.out.println("Ingrese el libro de desea buscar");
+        String tit = leer.next();
+        DAO.buscarPorTitulo(tit);
+        l.toString();
+        return l;
+    }
 
 
     

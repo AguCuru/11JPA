@@ -2,6 +2,7 @@
 package persistencia;
 
 import entidades.Libro;
+import static entidades.Libro_.titulo;
 import java.util.List;
 
 public class LibroDao extends DAO<Libro>{
@@ -21,6 +22,14 @@ public class LibroDao extends DAO<Libro>{
         super.editar(objeto); 
     }
 
+    public Libro buscarPorTitulo(String titulo) throws Exception {
+        conectar();
+        Libro libro = (Libro) em.createQuery("SELECT l FROM Libro l WHERE l.titulo LIKE :titulo")
+                .setParameter("titulo", titulo)
+                .getSingleResult();
+        desconectar();
+        return libro;
+    }     
 
     
     public Libro buscarPorId(Long id) throws Exception{
