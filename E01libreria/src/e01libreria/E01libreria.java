@@ -29,8 +29,12 @@ public class E01libreria {
         //as.eliminarAutorXid();
         //as.imprimirAutores();
         //es.eliminarEditorialXid();
-        ls.crearLibro();
+        //ls.crearLibro();
+        
+        //ls.editarLibro();
+        ls.buscarXtitulo();
         ls.imprimirLibros();
+        
 //        Scanner leer = new Scanner (System.in);
 //        String opcion = "";
 
